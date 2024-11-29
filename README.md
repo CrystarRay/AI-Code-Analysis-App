@@ -18,8 +18,9 @@ then run
 ```source venv/bin/activate``` on Linux
 
 5. install flask use pip command
+```
 pip install Flask
-
+```
 5.now you can start the server run following command：
 python app.py
 
