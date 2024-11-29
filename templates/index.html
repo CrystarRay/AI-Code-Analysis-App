@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Code Analysis App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Container styling for better centralization and balance */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        /* Improved styles for response box */
+        .response-box {
+            background-color: #f0f4f8; /* Light blue background for better contrast */
+            padding: 20px;
+            border-radius: 5px;
+            white-space: pre-wrap; /* Preserve whitespace while allowing text to wrap */
+            font-family: monospace; /* Use monospace for code-like appearance */
+            border: 1px solid #c3e6cb;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        /* Improved styles for inline code */
+        code {
+            background-color: #e8e8e8; /* Light gray background for inline code */
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        /* Improved styles for block code */
+        pre code {
+            display: block;
+            background-color: #e8f5e9; /* Light green for code blocks */
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #d0e6b5;
+            overflow-x: auto; /* Enable horizontal scrolling for long code */
+        }
+
+        /* Header styling for better distinction */
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Styles for alerts */
+        .alert {
+            text-align: center;
+        }
+
+        /* Style the submit button to make it more visually appealing */
+        .btn-primary {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            font-weight: bold;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>AI Code Analysis App</h2>
+        <p class="text-center">Enter a prompt or upload a code file to get AI-generated insights and analysis.</p>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="prompt"><strong>Enter your Prompt:</strong></label>
+                <textarea class="form-control" name="prompt" id="prompt" rows="3" required></textarea>
+            </div>
+                <div class="form-group mt-4">
+                    <label for="file"><strong>Upload a File (Required):</strong></label>
+                    <input type="file" class="form-control" name="file" id="file" required>
+                </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <!-- Display any flashed messages like errors or success notices -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-info mt-3">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <!-- Display the AI Response -->
+        {% if response %}
+            <div class="alert alert-success mt-4">
+                <h5>AI Response:</h5>
+                <div class="response-box">
+                    {{ response | safe }}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
