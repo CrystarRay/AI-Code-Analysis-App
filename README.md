@@ -21,9 +21,10 @@ then run
 ```
 pip install Flask
 ```
-5.now you can start the server run following command：
+6. now you can start the server run following command
+```
 python app.py
-
+```
 6. Open your web browser and go to http://127.0.0.1:5000/ to start using the application.
 
 
