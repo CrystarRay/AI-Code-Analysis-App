@@ -28,3 +28,4 @@ python app.py
 
 
 Operating Instructions:
+Enter the prompt and upload the code you want to analyze. Click on submit, and the response will show up after about 8 seconds.
